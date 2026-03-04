@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Document Q&A</title>
+    <style>
+        body {
+            background: #f6f8fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 32px 28px 24px 28px;
+        }
+        h2 {
+            color: #2d3a4a;
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        input[type="file"] {
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 8px;
+            background: #f9fafb;
+        }
+        input[type="text"] {
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 1rem;
+            background: #f9fafb;
+        }
+        button {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .doc-id {
+            background: #f1f5f9;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin: 16px 0 0 0;
+            font-size: 0.98rem;
+            color: #374151;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 28px 0 18px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Document</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload</button>
+        </form>
+
+        {% if document_id %}
+            <div class="doc-id"><b>Document ID:</b> {{ document_id }}</div>
+            <hr class="divider">
+            <h2>Ask a Question</h2>
+            <form action="/ask" method="post">
+                <input type="hidden" name="document_id" value="{{ document_id }}">
+                <input type="text" name="question" placeholder="Enter your question" required>
+                <button type="submit">Ask</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

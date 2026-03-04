@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Q&A Result</title>
+    <style>
+        body {
+            background: #f6f8fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 32px 28px 24px 28px;
+        }
+        h2 {
+            color: #2d3a4a;
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+        .answer {
+            background: #f1f5f9;
+            border-radius: 6px;
+            padding: 14px 12px;
+            font-size: 1.08rem;
+            color: #374151;
+            margin-bottom: 18px;
+        }
+        .confidence {
+            color: #64748b;
+            font-size: 0.98rem;
+            margin-bottom: 18px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 8px 18px;
+            background: #f1f5f9;
+            transition: background 0.2s;
+        }
+        a:hover {
+            background: #e0e7ef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Answer</h2>
+        <div class="answer">{{ answer }}</div>
+        <div class="confidence">Confidence: {{ confidence }}</div>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
